@@ -15,10 +15,9 @@
 * 复现命令（在仓库根目录执行）：
 
   * `make build`
-  
-  
-
   * `make test`
+  * `make deploy`
+
 
 ```bash
 zhangyuting@MacBook-Pro-2 lst-vault-orchestrator % make build 
@@ -46,7 +45,17 @@ Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 6.18ms (1.29ms CPU 
 
 Ran 1 test suite in 152.18ms (6.18ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
 ```
-* 关键文件（路径即证据）：
+```bash
+zhangyuting@MacBook-Pro-2 lst-vault-orchestrator % make deploy
+cd contracts && forge script script/SimpleBank.s.sol
+[⠊] Compiling...
+No files changed, compilation skipped
+Script ran successfully.
+Gas used: 349164
+
+If you wish to simulate on-chain transactions pass a RPC URL.
+```
+* 关键文件：
 
   * `contracts/src/bank/SimpleBank.sol`
   * `contracts/test/bank/SimpleBank.t.sol`
