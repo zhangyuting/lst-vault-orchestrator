@@ -32,18 +32,10 @@ contract SimpleBankTest is Test {
         bank.deposit{value: amount}();
 
         // 检查 Alice 在合约内部记录的余额
-        assertEq(
-            bank.balanceOf(alice),
-            amount,
-            "Alice in-contract balance should match deposit amount"
-        );
+        assertEq(bank.balanceOf(alice), amount, "Alice in-contract balance should match deposit amount");
 
         // 检查合约本身的 ETH 余额
-        assertEq(
-            address(bank).balance,
-            amount,
-            "Contract ETH balance should match deposit amount"
-        );
+        assertEq(address(bank).balance, amount, "Contract ETH balance should match deposit amount");
     }
 
     /**
@@ -67,24 +59,12 @@ contract SimpleBankTest is Test {
         bank.withdraw(amount);
 
         // 检查 1: Alice 在合约里的余额是否已归零
-        assertEq(
-            bank.balanceOf(alice),
-            0,
-            "Alice in-contract balance should be zero after withdrawal"
-        );
+        assertEq(bank.balanceOf(alice), 0, "Alice in-contract balance should be zero after withdrawal");
 
         // 检查 2: 合约持有的 ETH 余额是否已归零
-        assertEq(
-            address(bank).balance,
-            0,
-            "Contract ETH balance should be zero after withdrawal"
-        );
+        assertEq(address(bank).balance, 0, "Contract ETH balance should be zero after withdrawal");
 
         // 检查 3: Alice 的钱包余额是否正确增加（加上了提出来的 1 ETH）
-        assertEq(
-            alice.balance,
-            aliceBalanceBefore + amount,
-            "Alice should receive the withdrawn ETH in her wallet"
-        );
+        assertEq(alice.balance, aliceBalanceBefore + amount, "Alice should receive the withdrawn ETH in her wallet");
     }
 }

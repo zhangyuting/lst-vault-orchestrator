@@ -17,6 +17,7 @@
   * `make build`
   * `make test`
   * `make deploy`
+  * `make fmt`
 
 
 ```bash
@@ -55,6 +56,18 @@ Gas used: 349164
 
 If you wish to simulate on-chain transactions pass a RPC URL.
 ```
+```bash
+zhangyuting@MacBook-Pro-2 lst-vault-orchestrator % make fmt
+cd contracts && forge fmt
+Formatted lst-vault-orchestrator/contracts/test/bank/SimpleBank.t.sol
+Formatted lst-vault-orchestrator/contracts/src/bank/SimpleBank.sol
+```
+```bash
+zhangyuting@MacBook-Pro-2 lst-vault-orchestrator % make clean
+cd contracts && forge clean
+```
+
+
 * 关键文件：
 
   * `contracts/src/bank/SimpleBank.sol`

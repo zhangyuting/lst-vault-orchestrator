@@ -12,7 +12,7 @@ contract SimpleBank {
         require(balances[msg.sender] >= amount, "INSUFFICIENT_BALANCE");
         balances[msg.sender] -= amount;
 
-        (bool ok, ) = msg.sender.call{value: amount}("");
+        (bool ok,) = msg.sender.call{value: amount}("");
         require(ok, "ETH_TRANSFER_FAILED");
     }
 
